@@ -13,9 +13,14 @@ public class ServerController {
     @Autowired
     private ServerService bService;
 
+    /**
+     * jpa提供web支持,可以直接在controller根据参数查询出领域对象.
+     * @param user  人员
+     * @return  人员数据
+     */
     @GetMapping("/users/{id}")
-    public User getUser(@PathVariable String id) {
-        return bService.getUser(id);
+    public User getUser(@PathVariable("id") User user) {
+        return user;
     }
 
     @PostMapping("/users")
